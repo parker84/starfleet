@@ -73,4 +73,10 @@ life_df = pd.DataFrame([
 planets_df = planets_df.join(life_df)
 
 print(planets_df['life_exists'].value_counts())
-planets_df.to_csv('data/processed/planetary_systems/planets.csv', index=False)
+selected_cols = [
+    'planet_name', 'life_exists', 'num_stars_in_system', 'num_planets_in_system',
+    'orbital_period', 'planet_radius_vs_earth', 'planet_mass_vs_earth',
+    'planet_equilibrium_temperature', 'distance_to_system_in_light_years',
+    'stellar_surface_gravity', 'stellar_metallicity'
+]
+planets_df[selected_cols].to_csv('data/processed/planetary_systems/planets.csv', index=False)

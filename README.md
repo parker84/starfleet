@@ -2,7 +2,7 @@
 Repo to build a space based Data Science Course / Game
 
 ## Game Introduction
-Congrats on your new role as the Chief Data Science Officer on the USS Enterprise (the best starship in the United Federation of Planets fleet - [watch this video for more context](https://www.youtube.com/watch?v=fLNupChQc2k)).
+Congrats on your new role as the Chief Data Science Officer on the USX Enterprise (the best starship in the United Federation of Galaxies fleet).
 
 You and your team are about to embark on a journey to explore the final frontier - space.
 
