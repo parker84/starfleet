@@ -109,10 +109,14 @@ Sklearn Model Feature Importantces:
         self._eval_df(model, self.train_df)
         st.markdown('### Eval on Validation Data:')
         self._eval_df(model, self.val_df)
+    
+    def predict(self, model, df, threshold):
+        df['pred_proba'] = model.predict_proba(df[self.feature_cols])[:, 1]
+        df['pred'] = 1 * (df['pred_proba'] > threshold)
+        return df
 
     def _eval_df(self, model, df, threshold=0.5):
-        df['pred'] = model.predict(df[self.feature_cols])
-        df['pred_proba'] = model.predict_proba(df[self.feature_cols])[:, 1]
+        df = self.predict(model, df, threshold)
         try:
             auc = round(roc_auc_score(df[self.target_col], df['pred_proba']), 2)
         except Exception as err:
@@ -261,3 +265,6 @@ model_trainer.eda_features_vs_target()
 log_reg_model = model_trainer.train_log_reg()
 tree_model = model_trainer.train_decision_tree()
 rf_model = model_trainer.train_rf()
+
+test_df = test_df.fillna(0) # Hint: do this better
+test_df = model_trainer.predict(rf_model, test_df, threshold=0.5)

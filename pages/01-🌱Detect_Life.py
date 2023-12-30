@@ -38,12 +38,6 @@ with st.expander('README 📖', expanded=False):
 
 st.markdown("### Predict Life 🌱")
 
-
-# TODO: make a baseline model with model evaluation to show how its done
-# TODO: build a model evaluation class with prec / recall curves
-
-predictions = None # TODO: make predictions on the planets where we don't know if life exists or not
-
 with open('./projects/detect_life/train_model.py', 'r') as f:
     default_code = f.read()
 
