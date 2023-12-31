@@ -18,7 +18,7 @@ Edit the **`Execution Code`** 🔧 below to predict whether or not life exists o
     """
 )
 
-st.markdown("### Predict Life 🌱")
+st.markdown("### Predict Life 👾")
 
 with st.expander('README 📖', expanded=False):
     st.markdown(
