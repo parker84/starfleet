@@ -11,14 +11,16 @@ st.markdown(
     """### Your Mission 🛸
 You've been tasked with detecting life on planets in deep space.
 
-This is crucial for us to understand which planets we should explore and which we should avoid.
+This is incredibly important so we can properly evaluate the risks of exploring each new planet.
+
+If you fail it's very likely that you and everyone on the ship will die.
 
 Edit the **`Execution Code`** 🔧 below to predict whether or not life exists on unknown planets.
 
     """
 )
 
-st.markdown("### Predict Life 👾")
+st.markdown("### Predict Life 🌱")
 
 with st.expander('README 📖', expanded=False):
     st.markdown(
