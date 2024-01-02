@@ -19,25 +19,18 @@ class Life:
         self.stellar_surface_gravity = stellar_surface_gravity
 
     def does_life_exist(self):
-        if np.random.random() < self.percent_unknown:
-            return {
-                'life_exists': np.nan,
-                'life_possible': np.nan,
-                'life_likely': np.nan
-            }
-
         life_possible = self._is_life_possible()
         life_likely = self._is_life_likely()
         if not life_possible:
             life_exists = False
         else:
             if life_likely:
-                if np.random.random() < .8:
+                if np.random.random() < .9:
                     life_exists = True
                 else:
                     life_exists = False
             else:
-                if np.random.random() < .5:
+                if np.random.random() < .6:
                     life_exists = True
                 else:
                     life_exists = False
