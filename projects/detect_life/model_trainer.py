@@ -15,9 +15,15 @@ SEED = 42
 
 class TrainModel:
 
-    def __init__(self, data: pd.DataFrame, feature_cols: list, target_col: str) -> None:
+    def __init__(self, 
+                 data: pd.DataFrame, 
+                 feature_cols: list, 
+                 target_col: str,
+                 threshold: float = 0.5
+                ) -> None:
         self.feature_cols = feature_cols
         self.target_col = target_col
+        self.threshold = threshold
         self.train_df, self.val_df = self._train_test_split(data)
 
     def _train_test_split(self, data):
@@ -121,8 +127,8 @@ Sklearn Model Feature Importantces:
         df['pred'] = 1 * (df['pred_proba'] > threshold)
         return df
 
-    def _eval_df(self, model, df, threshold=0.5):
-        df = self.predict(model, df, threshold)
+    def _eval_df(self, model, df):
+        df = self.predict(model, df, threshold=self.threshold)
         try:
             auc = round(roc_auc_score(df[self.target_col], df['pred_proba']), 2)
         except Exception as err:
@@ -130,7 +136,7 @@ Sklearn Model Feature Importantces:
         ap = round(average_precision_score(df[self.target_col], df['pred_proba']), 2)
         report = classification_report(
             df[self.target_col], 
-            1 * (df['pred_proba'] > threshold), 
+            df['pred'], 
             target_names=['negative', 'positive']
         )
         st.markdown(
@@ -142,7 +148,7 @@ average precision: {ap},
 
 random precision: {round(df[self.target_col].mean(), 2)}
 
-Classification Report (threshold={threshold}): \n{report}
+Classification Report (threshold={self.threshold}): \n{report}
 ```
             """
         )
