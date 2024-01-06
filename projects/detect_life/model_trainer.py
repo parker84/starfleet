@@ -23,13 +23,19 @@ class TrainModel:
     def _train_test_split(self, data):
         return train_test_split(data, test_size=.2, random_state=SEED)
     
-    def train_rf(self):
+    def train_rf(
+            self,
+            n_estimators=500,
+            max_depth=3,
+            min_samples_leaf=10,
+            random_state=SEED
+        ):
         with st.spinner('Training Random Forest...'):
             model = RandomForestClassifier(
-                random_state=SEED,
-                n_estimators=500, # number of trees
-                max_depth=3, # max depth of each tree
-                min_samples_leaf=10, # min samples in each leaf of each tree
+                random_state=random_state,
+                n_estimators=n_estimators, # number of trees
+                max_depth=max_depth, # max depth of each tree
+                min_samples_leaf=min_samples_leaf, # min samples in each leaf of each tree
             )
             model.fit(self.train_df[self.feature_cols], self.train_df[self.target_col])
             feature_imps = self.get_feature_importances(model)

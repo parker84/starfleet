@@ -1,6 +1,11 @@
 
+from sklearn.metrics import average_precision_score, classification_report, roc_auc_score
 import streamlit as st
 from streamlit_ace import st_ace
+import pandas as pd
+from projects.detect_life.model_trainer import TrainModel
+import streamlit as st
+import pandas as pd
 
 
 st.set_page_config(page_title='StarFleet', page_icon='🛸', initial_sidebar_state="auto", menu_items=None)
@@ -81,6 +86,44 @@ with st.expander('**`Execution Code`** 🔧 (edit me!)', expanded=False):
         key=123
     )
 
-st.markdown('### The Results')
+st.markdown('### The Modelling Process 🧠')
 exec(model_trainer_content)
 exec(execution_content)
+
+st.markdown('### Performance on Holdout Data 📊')
+uploaded_file = st.file_uploader(
+    "Upload Predictions CSV", 
+    type="csv",
+    help="Upload a CSV file with predictions on the holdout set, include columns `'pred_proba'` and `'pred'`"
+)
+if uploaded_file is not None:
+    # Read the CSV file
+    test_df_preds = pd.read_csv(uploaded_file)
+    assert 'pred_proba' in test_df_preds.columns and 'pred' in test_df_preds.columns, "You need to include columns 'pred_proba' and 'pred' in your CSV"
+    test_df_w_labels = pd.read_csv('./data/processed/planetary_systems/planets_holdout_data.csv')
+    test_df = test_df_w_labels.merge(test_df_preds[['pred_proba', 'pred', 'planet_name']], on='planet_name', how='inner')
+    assert test_df.shape[0] == test_df_w_labels.shape[0]
+    target_col = 'life_exists'
+    try:
+        auc = round(roc_auc_score(test_df[target_col], test_df['pred_proba']), 2)
+    except Exception as err:
+        auc = None
+    ap = round(average_precision_score(test_df[target_col], test_df['pred_proba']), 2)
+    report = classification_report(
+        test_df[target_col], 
+        test_df['pred'], 
+        target_names=['negative', 'positive']
+    )
+    st.markdown(
+        f"""
+```
+auc: {auc},
+
+average precision: {ap}, 
+
+random precision: {round(test_df[target_col].mean(), 2)}
+
+Classification Report: \n{report}
+```
+            """
+        )

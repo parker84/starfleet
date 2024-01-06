@@ -88,6 +88,7 @@ for col in planets_df.columns:
         p.write_image(f'data/processed/planetary_systems/viz/{col}.png')
 
 # creating life
+planets_df.index = range(planets_df.shape[0]) # notice that without this - the indexes don't line up and then all of the features are non predictive
 life_df = pd.DataFrame([
     Life(
         row.planet_radius_vs_earth,
@@ -111,5 +112,8 @@ train_df = planets_df.sample(frac=0.8, replace=False)
 train_df['train'] = True
 test_df = planets_df.join(train_df, how='left', rsuffix='_train')
 test_df = test_df[test_df.train.isnull()]
-train_df.to_csv('data/processed/planetary_systems/planets.csv', index=False)
-test_df.to_csv('data/processed/planetary_systems/planets_holdout_data.csv', index=False)
+logger.info(f'train_df shape: {train_df.shape}')
+logger.info(f'test_df shape: {test_df.shape}')
+train_df.to_csv('data/processed/planetary_systems/planets_train_data.csv', index=False)
+test_df[selected_cols].to_csv('data/processed/planetary_systems/planets_holdout_data.csv', index=False)
+test_df[selected_cols].drop(columns=['life_exists']).to_csv('data/processed/planetary_systems/planets_holdout_data_no_labels.csv', index=False)
