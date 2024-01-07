@@ -142,7 +142,7 @@ Sklearn Model Feature Importantces:
         st.markdown(
             f"""
 ```
-auc: {auc},
+ROC auc: {auc},
 
 average precision: {ap}, 
 
