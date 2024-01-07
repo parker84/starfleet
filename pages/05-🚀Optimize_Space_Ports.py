@@ -11,7 +11,7 @@ st.markdown(
     """### Your Mission 🛸
 On your last mission the Vultans discovered you (one of the top Data Science minds in the galaxy) were onboard this ship.
 
-They've been experiencing a economic travesty due to the chaos in the space ports (which are used to transport goods and services from this solar system across the galaxy).
+They've been experiencing an economic travesty due to the chaos in the space ports (which are used to transport goods and services from this solar system across the galaxy).
 
 Because of this, they've take you and your entire crew hostage until you are able to bring stability back to their ports.
 
