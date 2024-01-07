@@ -15,6 +15,11 @@ They've been experiencing a economic travesty due to the chaos in the space port
 
 Because of this, they've take you and your entire crew hostage until you are able to bring stability back to their ports.
 
+You'll need to build 🛠️:
+1. A dashboard to monitor the ports
+2. Demand Forecasting Model
+3. Supply Chain Optimization
+
 If you fail, they will execute you and everyone else on your ship.
 
 Edit the **`Execution Code`** 🔧 below to build a robot that will protect the ship.

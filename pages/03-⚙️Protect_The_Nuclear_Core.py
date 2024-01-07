@@ -11,10 +11,10 @@ st.markdown(
     """### Your Mission 🛸
 You need to monitor the nuclear core of the ship and all of its components to make sure it doesn't malfunction.
 
-**This includes:**
-- Outlier Detection
-- Dashboard Building
-- Survival Analysis
+You'll need to build 🛠️:
+- Outlier Detection Models
+- Monitoring Dashboard
+- Survival Analysis Model
 
 If you fail, the nuclear core will cause a nuclear reaction and the explosion will kill you and your entire crew.
 

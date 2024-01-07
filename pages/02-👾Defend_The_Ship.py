@@ -11,6 +11,10 @@ st.markdown(
     """### Your Mission 🛸
 You've been tasked with defending the ship against alien invaders.
 
+You'll need to build 🛠️:
+- An Environment to simulate the attacks
+- Reinforcement Agent to Defend The Ship
+
 If you fail, you and everyone on the ship will die.
 
 Edit the **`Execution Code`** 🔧 below to build a robot that will protect the ship.
