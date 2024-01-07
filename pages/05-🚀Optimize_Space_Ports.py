@@ -15,7 +15,7 @@ They've been experiencing an economic travesty due to the chaos in thir space po
 
 Because of this, they've taken you and your entire crew hostage until you are able to bring stability back to their ports.
 
-You'll need to build 🛠️:
+**You'll need to build 🛠️:**
 1. A dashboard to monitor the ports
 2. Demand Forecasting Model
 3. Supply Chain Optimization

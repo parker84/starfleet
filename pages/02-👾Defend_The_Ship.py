@@ -11,7 +11,7 @@ st.markdown(
     """### Your Mission 🛸
 You've been tasked with defending the ship against alien invaders.
 
-You'll need to build 🛠️:
+**You'll need to build 🛠️:**
 - An Environment to simulate the attacks
 - Reinforcement Agent to Defend The Ship
 

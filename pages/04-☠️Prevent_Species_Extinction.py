@@ -15,7 +15,7 @@ You need to forecast the population growth of every planet in the galaxy for the
 
 So we can identify when which planets are going to hit their carrying capacity and need our help to avoid extinction.
 
-You'll need to build 🛠️:
+**You'll need to build 🛠️:**
 1. A Model to Forecast Population Growth for each planet
 2. A Model to Forecast Carry Capacity for each planet
 3. Analyze and give recommendations on which planets need our help and when
