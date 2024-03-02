@@ -27,3 +27,5 @@ Edit the **`Execution Code`** 🔧 below to build a robot that will protect the 
 )
 
 st.markdown("### Coming Soon! ☠️")
+
+# TODO: introduce the concept of causation between time series (granger causality, stationarity, VAR, ...)

@@ -127,3 +127,6 @@ Classification Report: \n{report}
 ```
             """
         )
+
+# TODO: judge whether or not the model is good enough
+# TODO: specify (in this section) how good the precision / recall needs to be and why

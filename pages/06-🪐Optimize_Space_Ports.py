@@ -5,7 +5,7 @@ from streamlit_ace import st_ace
 
 st.set_page_config(page_title='StarFleet', page_icon='🛸', initial_sidebar_state="auto", menu_items=None)
 
-st.title('Optimize Space Ports 🚀')
+st.title('Optimize Space Ports 🪐')
 
 st.markdown(
     """### Your Mission 🛸
