@@ -107,7 +107,7 @@ st.plotly_chart(p)
     )
 
 model = smf.logit(
-    "rings_w_thermal_distress ~ num_o_rings_at_risk + launch_temp + leak_check_pressure + order_of_flight",
+    "rings_w_thermal_distress ~ launch_temp + leak_check_pressure",
     data=oring_erosion_or_blowby,
 ).fit()
 
@@ -150,3 +150,5 @@ A terminal mistake was made analyzing the data the night before the launch and t
 Here's the source of the data: [Challenger USA Space Shuttle O-Ring](https://archive.ics.uci.edu/dataset/92/challenger+usa+space+shuttle+o+ring)
 """
 )
+
+# TODO: clean this all up
