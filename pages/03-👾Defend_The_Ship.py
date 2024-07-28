@@ -13,14 +13,24 @@ You've been tasked with defending the ship against alien invaders.
 
 **You'll need to build 🛠️:**
 - An Environment to simulate the attacks
-- Reinforcement Agent to Defend The Ship
+- Reinforcement Learning Agent to Defend The Ship
 
 If you fail, you and everyone on the ship will die.
 
-Edit the **`Execution Code`** 🔧 below to build a robot that will protect the ship.
+Expand the sections below 👇🏻 to begin your journey.
     """
 )
 
-st.markdown("### Coming Soon! 👾")
 
+with st.expander('RL 🤖 Environment in `43` lines of Python'):
 
+    st.markdown("""The agent does nothing productive, action space is only 2D, and the state remains static.
+
+But the Classes + Methods + Training Loop remains the same when building out an agent to battle invaders in space 👾.
+    """)
+
+    with open('projects/defend/dummy_env.py', 'r') as f:
+        code = f.read()
+        st.code(code, language='python')
+
+st.markdown("### More Coming Soon! 👾")
